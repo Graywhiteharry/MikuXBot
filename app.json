@@ -69,7 +69,7 @@
       },
       "UPSTREAM_REPO": {
         "description": "If you dont know this, Leave as it is",
-        "value": "https://github.com/AbhiModszYT/AnieXEricaMusic",
+        "value": "https://github.com/Garry180304/AnieXEricaMusic",
         "required": false
       },
       "UPSTREAM_BRANCH": {
