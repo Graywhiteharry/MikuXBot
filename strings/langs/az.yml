@@ -138,7 +138,7 @@ cplay_6 : "» Kanalı bu qrupla əlaqələndirmək üçün, kanalın <b>sahibi</
 cplay_7 : "» Kanal oxutma deaktiv edildi."
 
 
-play_1 : "🔎"
+play_1 : "⚡"
 play_2 : "<b>➻ Kanal oxuma rejimi</b>\n\nEmal olunur, gözləyin...\n\n<b>Bağlı Kanal:</b> {0}"
 play_3 : "» Sorğu icra edilə bilmədi."
 play_4 : "<b>Yalnız İdarəçilər Oynaya bilər</b>\nBu söhbətin yalnız idarəçiləri oynamağa icazə verilir\n\nOynama rejimini /playmode ilə dəyişdirin"

@@ -135,7 +135,7 @@ cplay_5 : "Hanya saluran yang didukung."
 cplay_6 : "» Anda perlu menjadi <b>pemilik</b> saluran {0} untuk menghubungkannya dengan grup ini.\n<b>Pemilik Saluran:</b> @{1}\n\nSebagai alternatif, Anda dapat menautkan grup Anda ke saluran tersebut dan kemudian mencoba menghubungkannya dengan <code>/channelplay linked</code>"
 cplay_7 : "» Pemutaran saluran dinonaktifkan."
 
-play_1 : "🔎"
+play_1 : "⚡"
 play_2 : "<b>➻ MODE PUTAR CHANNEL</b>\n\nSedang diproses, mohon tunggu...\n\n<b>Channel Terhubung :</b> {0}"
 play_3 : "» gagal memproses kueri."
 play_4 : "<b>Hanya Admin yang Boleh Putar</b>\nHanya admin dari obrolan ini yang diizinkan untuk memutar\n\nUbah mode putar melalui /playmode"
