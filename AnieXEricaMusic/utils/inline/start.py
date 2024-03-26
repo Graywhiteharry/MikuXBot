@@ -30,12 +30,6 @@ def private_panel(_):
             InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
             InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
         ],
-        [
-            InlineKeyboardButton(text=_["S_B_6"], url=config.SUPPORT_CHANNEL),
-            InlineKeyboardButton(
-                text=_["S_B_7"],
-                url=f"https://github.com/AbhiModszYT/AnieXEricaMusic",
-            )
         ],
         [InlineKeyboardButton(text=_["ST_B_3"], callback_data="LG")],
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
