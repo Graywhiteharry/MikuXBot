@@ -27,7 +27,7 @@ from strings import get_string
 
 # Define a list of image URLs
 video_urls = [
-    "https://graph.org/file/8f5299f1d37a3ae17ecbc.mp4",
+    "https://graph.org/file/62eec5085aefc196a181f.mp4",
 ]
 
 # Define a list of animated emojis
@@ -103,7 +103,7 @@ async def start_pm(client, message: Message, _):
         # Send the selected video with the random caption
         initial_message = await message.reply_video(
             video=selected_video_url,
-            caption="Bot is starting...",
+            caption="Bot is initialising...",
         )
         
         # Randomly select an animated emoji
@@ -119,7 +119,7 @@ async def start_pm(client, message: Message, _):
         await emoji_message.delete()
         
         # Edit the initial message caption
-        await initial_message.edit_caption("Bot is initialized.")
+        await initial_message.edit_caption("✅ Bot is initialized.")
         
         # Send the start message
         await message.reply_text(
