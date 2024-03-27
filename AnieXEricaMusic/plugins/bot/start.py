@@ -104,7 +104,7 @@ async def start_pm(client, message: Message, _):
         # Send the selected image with the random caption
         initial_message = await message.reply_photo(
             photo=selected_image_url,
-            caption=_["start_2"].format(message.from_user.mention, app.mention),
+            caption="Bot is starting...",
             reply_markup=InlineKeyboardMarkup(out),
         )
         
@@ -114,14 +114,23 @@ async def start_pm(client, message: Message, _):
         # Send the animated emoji alone
         emoji_message = await message.reply_text(selected_emoji)
         
-        # Wait for a short duration (9-10 seconds)
-        await asyncio.sleep(random.randint(9, 10))
+        # Wait for a short duration (6-7 seconds)
+        await asyncio.sleep(random.randint(6, 7))
         
         # Delete the animated emoji message
         await emoji_message.delete()
+        
+        # Edit the initial message caption
+        await initial_message.edit_caption("Bot is initialized.")
+        
+        # Send the start message
+        await message.reply_text(
+            _["start_2"].format(message.from_user.mention, app.mention),
+            reply_markup=InlineKeyboardMarkup(out),
+        )
 
         if await is_on_off(2):
-            return await app.send_message(
+            await app.send_message(
                 chat_id=config.LOGGER_ID,
                 text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
