@@ -1,4 +1,6 @@
 import time
+import random
+import asyncio
 
 from pyrogram import filters
 from pyrogram.enums import ChatType
@@ -23,11 +25,22 @@ from AnieXEricaMusic.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
+# Define a list of image URLs
+image_urls = [
+    "https://graph.org/file/fec0e95b713d015f12751.jpg",
+    "https://graph.org/file/89b9c7267580c47ced90d.jpg",
+]
+
+# Define a list of animated emojis
+animated_emojis = [
+    "🎭", "🧨", "🗿", "⚡", "🔥", "👀", "💞", "✨", "💫", "🌚", "🎊", "🎉",
+]
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
+    
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
@@ -84,17 +97,34 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
-        await message.reply_photo(
-            photo=config.START_IMG_URL,
+        
+        # Randomly select an image URL
+        selected_image_url = random.choice(image_urls)
+        
+        # Send the selected image with the random caption
+        initial_message = await message.reply_photo(
+            photo=selected_image_url,
             caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
+        
+        # Randomly select an animated emoji
+        selected_emoji = random.choice(animated_emojis)
+        
+        # Send the animated emoji alone
+        emoji_message = await message.reply_text(selected_emoji)
+        
+        # Wait for a short duration (9-10 seconds)
+        await asyncio.sleep(random.randint(9, 10))
+        
+        # Delete the animated emoji message
+        await emoji_message.delete()
+
         if await is_on_off(2):
             return await app.send_message(
                 chat_id=config.LOGGER_ID,
                 text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
-
 
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
