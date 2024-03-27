@@ -69,7 +69,7 @@
       },
       "UPSTREAM_REPO": {
         "description": "If you dont know this, Leave as it is",
-        "value": "https://github.com/Garry180304/AnieXEricaMusic",
+        "value": "https://github.com/Graywhiteharry/MikuXBot",
         "required": false
       },
       "UPSTREAM_BRANCH": {
@@ -84,7 +84,7 @@
       },
       "START_IMG_URL": {
         "description": "Your Bot Start Time Pic tgm link from @Sophia_x_MusicBot on Telegram.",
-        "value": "https://telegra.ph/file/b37803a767b15e939513d.png",
+        "value": "https://graph.org/file/62eec5085aefc196a181f.mp4",
         "required": false
       },
       "PING_IMG_URL": {
