@@ -104,7 +104,6 @@ async def start_pm(client, message: Message, _):
         initial_message = await message.reply_video(
             video=selected_video_url,
             caption="Bot is starting...",
-            reply_markup=InlineKeyboardMarkup(out),
         )
         
         # Randomly select an animated emoji
