@@ -26,9 +26,8 @@ from config import BANNED_USERS
 from strings import get_string
 
 # Define a list of image URLs
-image_urls = [
-    "https://graph.org/file/fec0e95b713d015f12751.jpg",
-    "https://graph.org/file/89b9c7267580c47ced90d.jpg",
+video_urls = [
+    "https://graph.org/file/8f5299f1d37a3ae17ecbc.mp4",
 ]
 
 # Define a list of animated emojis
@@ -96,38 +95,38 @@ async def start_pm(client, message: Message, _):
                     text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
     else:
-        out = private_panel(_)
-        
-        # Randomly select an image URL
-        selected_image_url = random.choice(image_urls)
-        
-        # Send the selected image with the random caption
-        initial_message = await message.reply_photo(
-            photo=selected_image_url,
-            caption="Bot is starting...",
-            reply_markup=InlineKeyboardMarkup(out),
-        )
-        
-        # Randomly select an animated emoji
-        selected_emoji = random.choice(animated_emojis)
-        
-        # Send the animated emoji alone
-        emoji_message = await message.reply_text(selected_emoji)
-        
-        # Wait for a short duration (6-7 seconds)
-        await asyncio.sleep(random.randint(6, 7))
-        
-        # Delete the animated emoji message
-        await emoji_message.delete()
-        
-        # Edit the initial message caption
-        await initial_message.edit_caption("Bot is initialized.")
-        
-        # Send the start message
-        await message.reply_text(
-            _["start_2"].format(message.from_user.mention, app.mention),
-            reply_markup=InlineKeyboardMarkup(out),
-        )
+    out = private_panel(_)
+    
+    # Randomly select a video URL
+    selected_video_url = random.choice(video_urls)
+    
+    # Send the selected video with the random caption
+    initial_message = await message.reply_video(
+        video=selected_video_url,
+        caption="Bot is starting...",
+        reply_markup=InlineKeyboardMarkup(out),
+    )
+    
+    # Randomly select an animated emoji
+    selected_emoji = random.choice(animated_emojis)
+    
+    # Send the animated emoji alone
+    emoji_message = await message.reply_text(selected_emoji)
+    
+    # Wait for a short duration (6-7 seconds)
+    await asyncio.sleep(random.randint(6, 7))
+    
+    # Delete the animated emoji message
+    await emoji_message.delete()
+    
+    # Edit the initial message caption
+    await initial_message.edit_caption("Bot is initialized.")
+    
+    # Send the start message
+    await message.reply_text(
+        _["start_2"].format(message.from_user.mention, app.mention),
+        reply_markup=InlineKeyboardMarkup(out),
+    )
 
         if await is_on_off(2):
             await app.send_message(
